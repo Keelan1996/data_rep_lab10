@@ -10,6 +10,10 @@ import 'bootstrap/dist/css/bootstrap.min.css'; // import bootstrap navigation ba
 import { Navbar, Nav } from 'react-bootstrap'; // import nav bar
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; // gives router and switch
+import { Create } from './components/create'; // import for create class
+import { Read } from './components/read';// import for read
+
+
 
 // <Router> incases the main code. switch allows to switch between components, 
 //the<Router> gives <route> where you can link your components up and pass the route type you gave in for the nav bar
@@ -48,8 +52,8 @@ class App extends Component {
           <Switch>
 
             <Route path='/' component={Content} exact />
-            <Route path='/read' component={Footer} exact />
-            <Route path='/create' component={Header} exact />
+            <Route path='/read' component={Read} exact />
+            <Route path='/create' component={Create} exact />
 
 
           </Switch>
