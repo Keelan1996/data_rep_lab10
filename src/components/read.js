@@ -21,8 +21,8 @@ export class Read extends React.Component {
 
     componentDidMount() {
 
-        // get the json blob
-        axios.get('https://jsonblob.com/api/jsonblob/894944504570986496')
+        // get the json blob, ***from local host server now (lab6)
+        axios.get('http://localhost:4000/api/movies')
          
         // then set the respons onto the state movie array and that will display
         .then((response) => {

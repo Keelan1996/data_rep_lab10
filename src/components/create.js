@@ -1,6 +1,7 @@
 
 // imports react
 import React from 'react';
+import axios from 'axios'; //talks http
 
 // class for the create component// extends and export word used to export app.js
 export class Create extends React.Component {
@@ -50,12 +51,45 @@ export class Create extends React.Component {
         })
 
     }
-
+    // invokes when submitted
     onSubmit(e) {
         e.preventDefault();
         alert("Movie: " + this.state.Title+ " "+ this.state.Year+ " "+this.state.Poster);
 
-    }
+        // http client
+        
+        const newMovie = {
+            //object that sends data
+
+            title: this.state.Title,
+            year: this.state.Year,
+            poster: this.state.Poster
+           
+
+        }
+      
+      
+      
+        // sends to the server the url with the object and data it has, app.post in the server is then invoked
+
+      axios.post('http://localhost:4000/api/movies', newMovie)
+    
+      
+    .then((res)=>{
+      // logging response after it's done
+      
+      console.log(res);
+
+
+    })
+
+    .catch((err)=>{
+
+        // catches error and logs to console
+       console.log(err);
+    });
+
+}
 
     render() {
 
