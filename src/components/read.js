@@ -26,7 +26,7 @@ export class Read extends React.Component {
          
         // then set the respons onto the state movie array and that will display
         .then((response) => {
-                    this.setState({ movies: response.data.movies})
+                    this.setState({ movies: response.data}) // (lab7) took out .movies array cause wasn't there
                 }
 
             )
