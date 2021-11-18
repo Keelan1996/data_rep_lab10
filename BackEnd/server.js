@@ -126,6 +126,27 @@ function (err, data) {
     });
 })
 
+// put to edit records lab8
+app.put('/api/movies/:id', (req,res)=>{
+     
+     console.log("Update movie: "+req.params.id);
+     console.log(req.body);
+
+      
+    // asynch call to database, find record with matching ID
+    // it contains req.body which is the new movie info, overides the record
+    
+
+     MovieModel.findByIdAndUpdate(req.params.id,req.body,{new:true},
+      (err,data)=>{
+        
+        // then this callback function sends back data
+        res.send(data);
+
+      })
+
+})
+
 
 
 

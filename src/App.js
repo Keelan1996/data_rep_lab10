@@ -12,6 +12,7 @@ import { Navbar, Nav } from 'react-bootstrap'; // import nav bar
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; // gives router and switch
 import { Create } from './components/create'; // import for create class
 import { Read } from './components/read';// import for read
+import { Edit } from './components/edit'; // import for edit (lab8)
 
 
 
@@ -28,6 +29,8 @@ class App extends Component {
     // headers and time 
     // header, content and footer being imported
     // imported bootstrap using nav bar code given on site
+
+    // lab8 unique id on the edit component
 
     return (
 
@@ -54,7 +57,9 @@ class App extends Component {
             <Route path='/' component={Content} exact />
             <Route path='/read' component={Read} exact />
             <Route path='/create' component={Create} exact />
-
+            
+            
+            <Route path = '/edit/:id' component={Edit}/>
 
           </Switch>
 

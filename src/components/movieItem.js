@@ -2,6 +2,7 @@
 // imports react
 import React from 'react';
 import Card from 'react-bootstrap/Card'; // card import
+import {Link} from 'react-router-dom'; // link helps change URL
 
 // class for the movieItem component// extends and export word used to export app.js
 export class MovieItem extends React.Component {
@@ -11,6 +12,8 @@ export class MovieItem extends React.Component {
         // returning component
 
         // returns the format of the movie data back to the "movies" class, which in turn sends it back to the "read" class
+
+        // add an edit button with the link inside the card lab8
 
         return (
             <div>
@@ -29,6 +32,10 @@ export class MovieItem extends React.Component {
                             </footer>
                         </blockquote>
                     </Card.Body>
+                     
+                    
+                    <Link to={"/edit/"+ this.props.movie._id} className="btn btn-primary">Edit</Link>
+
                 </Card>
 
 
