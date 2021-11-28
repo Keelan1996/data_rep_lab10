@@ -147,6 +147,24 @@ app.put('/api/movies/:id', (req,res)=>{
 
 })
 
+// listening for a delete method
+// goes to this url
+app.delete('/api/movies/:id', (req,res)=>{
+
+  // log to console the data ID out of the URL
+  console.log("Delete Movie: "+req.params.id);
+  
+  // find the ID IN THE DATABASE and delete it
+  MovieModel.findByIdAndDelete(req.params.id,(err,data)=>{
+    
+    // then will send new updated data
+    res.send(data);
+
+  })
+
+
+})
+
 
 
 
