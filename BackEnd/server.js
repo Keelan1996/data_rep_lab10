@@ -3,9 +3,19 @@ const app = express()
 const port = 4000
 const cors = require('cors'); // getting cors
 const mongoose = require('mongoose'); // mongoose for database
-
+const path = require('path'); // lab10 path
 
 // server 
+
+//add just under import section at the top of server,js lab10
+// Serve the static files from the React app
+app.use(express.static(path.join(__dirname, '../build')));
+app.use('/static', express.static(path.join(__dirname, 'build//static')));
+
+
+
+
+
 
 // this included to avoid cors error
 app.use(cors());
@@ -21,6 +31,7 @@ app.use(function(req, res, next) {
 // this is used as a bodyparser now with new update 
 app.use(express.urlencoded({extended: false})); 
 app.use(express.json());
+
 
 
 
@@ -191,6 +202,14 @@ app.post('/api/movies', (req,res)=>{
     // send msg back so not to duplicate because it will know it had sent
     res.send('Item Added');
 })
+
+
+
+// Handles any requests that don't match the ones above lab10
+app.get('*', (req,res) =>{
+  res.sendFile(path.join(__dirname+'/../build/index.html'));
+  });
+  
 
 // listen port
 app.listen(port, () => {
